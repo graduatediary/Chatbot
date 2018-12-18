@@ -11,12 +11,9 @@ url = "https://www.naver.com"
 
 response = requests.get(url)
 
-print(response)
 stone = bs4.BeautifulSoup(response.text,'html.parser')
 result = stone.select('.ah_k')
-print(type(result))
-print(result)
 
-for i in result:
+for i in result[:2]:
     searchURL = "https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query="
     webbrowser.open(searchURL+i.text)
