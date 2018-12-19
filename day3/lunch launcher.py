@@ -54,7 +54,6 @@ menus.insert(11,"B코스")
 B = menus[11:]
 browser.quit()
 
-
 key = "799893065:AAF671iykHhvFZ9X-LUr6wvryRRDnl55JXY"
 user_id = "724888484" #강사님꺼
 #"224026642" #내꺼
