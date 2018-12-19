@@ -6,7 +6,6 @@ from time import sleep
 import bs4
 
 import time
-import re
  
 browser = webdriver.Chrome('/Users/student/Downloads/chromedriver/chromedriver')
 
