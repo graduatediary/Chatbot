@@ -10,3 +10,5 @@ for tag in soup.select('.coin_list tr'):
   print(name + " / " + price)
   f = open("./a.txt", 'a+')
   f.write(name + " / " + price + '\n')
+
+  
