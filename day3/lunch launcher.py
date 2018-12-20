@@ -14,10 +14,10 @@ browser = webdriver.Chrome('/Users/student/Downloads/chromedriver/chromedriver')
 browser.get('https://edu.ssafy.com/comm/login/SecurityLoginForm.do')
 
 id=browser.find_element_by_id('userId')
-id.send_keys("tyran88@naver.com")
+id.send_keys("내 아이디")
 
 id=browser.find_element_by_name('userPwd')
-id.send_keys("lunchlauncher1!")
+id.send_keys("내 비번")
 
 menu_submit=browser.find_element_by_class_name('btn')
 menu_submit.click()
@@ -63,8 +63,8 @@ for i in range(2,11):
 for i in range(11,20):
     msgB=msgB +"\n" + menus[i]
 msgC="식사 맛있게 하세요~"
-key = "799893065:AAF671iykHhvFZ9X-LUr6wvryRRDnl55JXY"
-user_id = "724888484" #내꺼
+key = "내 키"
+user_id = "환경변수에 저장" #내꺼
 #"224026642" #강사님꺼
 
 # url=f"https://api.telegram.org/bot{key}/sendMessage?chat_id={user_id}&text={msg}"
