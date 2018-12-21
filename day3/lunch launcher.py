@@ -8,16 +8,20 @@ import bs4
 import time
 
 from telegram.ext import Updater, MessageHandler, Filters, CommandHandler  # import modules
- 
+
+import os
+
 browser = webdriver.Chrome('/Users/student/Downloads/chromedriver/chromedriver')
 
 browser.get('https://edu.ssafy.com/comm/login/SecurityLoginForm.do')
 
+MyID=os.getenv('SSAFY_ID')
 id=browser.find_element_by_id('userId')
-id.send_keys("내 아이디")
+id.send_keys(MyID)
 
+MyPW=os.getenv('SSAFY_PW')
 id=browser.find_element_by_name('userPwd')
-id.send_keys("내 비번")
+id.send_keys(MyPW)
 
 menu_submit=browser.find_element_by_class_name('btn')
 menu_submit.click()
@@ -63,14 +67,14 @@ for i in range(2,11):
 for i in range(11,20):
     msgB=msgB +"\n" + menus[i]
 msgC="식사 맛있게 하세요~"
-key = "내 키"
-user_id = "환경변수에 저장" #내꺼
+token = os.getenv("TELEGRAM_TOKEN")
+user_id = os.getenv("TELEGRAM_ID") #내꺼
 #"224026642" #강사님꺼
 
-# url=f"https://api.telegram.org/bot{key}/sendMessage?chat_id={user_id}&text={msg}"
-# url2=f"https://api.telegram.org/bot{key}/sendMessage?chat_id={user_id}&text={msgA}"
-# url3=f"https://api.telegram.org/bot{key}/sendMessage?chat_id={user_id}&text={msgB}"
-# url4=f"https://api.telegram.org/bot{key}/sendMessage?chat_id={user_id}&text={msgC}"
+# url=f"https://api.telegram.org/bot{token}/sendMessage?chat_id={user_id}&text={msg}"
+# url2=f"https://api.telegram.org/bot{token}/sendMessage?chat_id={user_id}&text={msgA}"
+# url3=f"https://api.telegram.org/bot{token}/sendMessage?chat_id={user_id}&text={msgB}"
+# url4=f"https://api.telegram.org/bot{token}/sendMessage?chat_id={user_id}&text={msgC}"
 
 # requests.get(url)
 # requests.get(url2)
@@ -86,7 +90,7 @@ def get_message(bot, update) :
 def menu_command(bot, update) :
     update.message.reply_text(msg+"\n"+msgA+"\n"+msgB+"\n"+msgC)
 
-updater = Updater(key)
+updater = Updater(token)
 
 message_handler = MessageHandler(Filters.text, get_message)
 updater.dispatcher.add_handler(message_handler)
